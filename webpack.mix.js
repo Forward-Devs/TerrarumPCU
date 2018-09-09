@@ -14,18 +14,26 @@ let mix = require('laravel-mix');
 var plugin =  'resources/assets/plugins/';
 
 mix.js('resources/assets/js/app.js', 'public/js/app.js')
-  .combine([
-    plugin + 'jquery/jquery.min.js',
-    plugin + 'popper/popper.min.js',
-    plugin + 'bootstrap/bootstrap.min.js',
-    plugin + 'moment/moment.min.js',
-    plugin + 'toastr/toastr.min.js',
-    plugin + 'slimscroll/jquery.slimscroll.js',
-    plugin + 'waves/waves.js',
-    plugin + 'sidebarmenu.js',
-    plugin + 'sticky-kit/sticky-kit.min.js',
-    'resources/assets/js/custom.js',
-    'public/js/app.js',
-  ],'public/js/bundle.min.js')
+    .scripts([
+           'public/assets/plugins/jquery/jquery.min.js',
+           'public/assets/plugins/bootstrap/js/popper.min.js',
+           'public/assets/plugins/bootstrap/js/bootstrap.min.js',
+           'resources/theme/js/jquery.slimscroll.js',
+           'resources/theme/js/waves.js',
+           'resources/theme/js/sidebarmenu.js',
+           'public/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js',
+           'public/assets/plugins/sparkline/jquery.sparkline.min.js',
+           'public/assets/plugins/sparkline/jquery.sparkline.min.js',
+           'resources/theme/js/custom.min.js',
+           'public/assets/plugins/d3/d3.min.js',
+           'public/assets/plugins/c3-master/c3.min.js',
+           'resources/theme/js/dashboard1.js'
+       ], 'public/js/all.js')
+       .styles([
+              'public/assets/plugins/bootstrap/css/bootstrap.min.css',
+              'public/assets/plugins/c3-master/c3.min.css',
+              'resources/theme/css/style.css',
+              'resources/theme/css/colors/blue.css'
+          ], 'public/css/all.css')
     .sass('resources/assets/sass/style.scss', 'public/css')
     .browserSync('laravue');
